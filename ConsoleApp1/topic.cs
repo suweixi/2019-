@@ -1,26 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 
 namespace arithmetic
 {
-   public class random
+    public class topic
     {
-       //随机整数
         public static string integer(int scope)
         {
             Random random = new Random(Guid.NewGuid().GetHashCode());  //随机整数
-            return random.Next(0, scope).ToString();
+            return random.Next(1, scope).ToString();   //随机数从1开始
         }
 
-        //生成题目
+
         public static string topicfour(int scope)
         {
             string ret;
-            ret = integer(scope) + " " + operators() + " " + integer(scope) + " " + operators() + " " + integer(scope);
+            //ret = integer(scope) + " " + operators() + " " + integer(scope);  //生成2项式题目
+            ret = integer(scope) + " " + operators() + " " + integer(scope) + " " + operators() + " " + integer(scope);  //生成3项式题目
             return ret;
         }
 

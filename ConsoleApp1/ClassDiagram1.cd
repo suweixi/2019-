@@ -1,17 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="arithmetic.Point">
-    <Position X="2.25" Y="0.75" Width="1.75" />
+    <Position X="2.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
       <FileName>Point.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="arithmetic.random">
-    <Position X="4.5" Y="0.5" Width="1.5" />
+  <Class Name="arithmetic.topic">
+    <Position X="0.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAIgAAAAAAA=</HashCode>
       <FileName>topic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="arithmetic.Program">
+    <Position X="4.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Microsoft YaHei UI" Size="9" />

@@ -7,17 +7,17 @@ namespace arithmetic
 {
     public class Point
     {
-        //生成试题
+        //生成试题的方法
         public static void examtest(int num, int quantity, int scope)
         {
             Hashtable fourOperations = new Hashtable();
-            Console.WriteLine("正在生成题目,请稍等！");
+            Console.WriteLine("正在生成题目,请稍等.....");
             switch (num)
             {
                 case 1:
                     for (int i = 0; i < quantity; i++)
                     {
-                        string topic = (random.topicfour(scope));
+                        string topic = (arithmetic.topic.topicfour(scope));
                         string answer = (consequence(topic));
                         if (fourOperations.Contains(topic))
                         {
@@ -36,7 +36,7 @@ namespace arithmetic
                     break;
             }
 
-            #region 写入TXT
+            #region 写入.TXT
             //题目的TXT
             FileStream fs = new FileStream("D:\\2019.3.20四则运算\\四则运算题目.txt", FileMode.Create);
             //答案的TXT
@@ -63,7 +63,6 @@ namespace arithmetic
             }
             da.Flush();
             da.Close();
-
             #endregion
         }
 
