@@ -1,0 +1,6 @@
+C:\Users\子晴\Desktop\2019.3.23\ConsoleApp1\bin\Debug\ConsoleApp1.exe.config
+C:\Users\子晴\Desktop\2019.3.23\ConsoleApp1\bin\Debug\ConsoleApp1.exe
+C:\Users\子晴\Desktop\2019.3.23\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
+C:\Users\子晴\Desktop\2019.3.23\ConsoleApp1\obj\Debug\arithmetic.csproj.CoreCompileInputs.cache
+C:\Users\子晴\Desktop\2019.3.23\ConsoleApp1\obj\Debug\ConsoleApp1.exe
+C:\Users\子晴\Desktop\2019.3.23\ConsoleApp1\obj\Debug\ConsoleApp1.pdb
