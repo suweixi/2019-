@@ -1,0 +1,157 @@
+﻿ 
+@{
+    ViewBag.Title = "Practice";
+}
+<style type="text/css">
+    /*CSS样式*/
+    table {
+        width: 1200px;
+    }
+
+    td {
+        width: 20%;
+        float: left;
+    }
+</style>
+<script>
+    //提交答案
+    function displayDate() {
+        for (var i = 1; i <= 50; i++) {/////////////////////////50是50题  如果改成100题这个必须该！！！！！
+            if (document.getElementById("z" + i).value == "+") {
+
+                if (Number(document.getElementById("q" + i).value) + Number(document.getElementById("h" + i).value) == document.getElementById(i).value && document.getElementById(i).value.length != 0) {
+                    document.getElementById("j" + i).value = "√";
+                } else {
+                    document.getElementById("j" + i).value = "X";
+                }
+            } else if (document.getElementById("z" + i).value == "-") {
+                if (Number(document.getElementById("q" + i).value) - Number(document.getElementById("h" + i).value) == document.getElementById(i).value && document.getElementById(i).value.length != 0) {
+                    document.getElementById("j" + i).value = "√";
+                } else {
+                    document.getElementById("j" + i).value = "X";
+                }
+            }
+            else
+                document.getElementById("j" + i).value = "BUG";
+        }
+        //得出分数
+        var abc = 0;
+        for (var i = 1; i <= 50; i++) {/////////////////////////50是50题  如果改成100题这个必须该！！！！！
+            if (document.getElementById("j" + i).value == "X") {
+                abc = abc + 1;
+            }
+        }
+        document.getElementById("zf").value = "本次练习成绩为：" + (50 - abc) * 5 + "分";/////////////////////////50是50题  如果改成100题这个必须该！！！！！
+    }
+</script>
+@*考试剩余时间*@
+<script type="text/javascript">
+    var maxtime = 0.2 * 60; //////////////这是时间要自己修改
+    var aa;
+    function CountDown() {
+        if (maxtime >= 0) {
+            minutes = Math.floor(maxtime / 60);
+            seconds = Math.floor(maxtime % 60);
+            msg = "距离结束还有" + minutes + "分" + seconds + "秒";
+            document.all["timer"].innerHTML = msg;
+            if (maxtime == 5 * 60) alert("距离结束仅剩5分钟");
+            --maxtime;
+        } else {
+            displayDate();
+            document.all["timer"].innerHTML = "考试结束，祝您成功！";
+            clearInterval(aa)//停止定时器
+        }
+    }
+    aa = setInterval("CountDown()", 1000);
+</script>
+<p class="Name"><span>考试模式</p>
+<img src="~/Content/images/58.gif" class="I">
+@* 倒计时开始答题 *@
+<script>
+    //使用匿名函数方法
+    var timer;
+    function countDown() {
+        var time = document.getElementById("Time");
+        document.getElementById("timer").style.display = 'none'
+        //alert(time.innerHTML);
+        //获取到id为time标签中的内容，现进行判断
+        var ysf = new Array();//定义运算符
+        ysf[1] = "+";
+        ysf[2] = "-";
+        if (time.innerHTML == 0) {
+            //等于0时清除计时
+            CountDown();
+            clearInterval(timer)//停止定时器
+            document.getElementById("Time").style.display = 'none'
+            document.getElementById("timer").style.display = 'block'
+            var tab = "<table>";
+            //循环行
+            for (var i = 1; i <= 1; i++) {
+                tab += "<tr>";
+                //循环列
+                for (var j = 1; j <= 50; j++) {/////////////////////////50是生成的题目数量!!!!!!!
+                    var ysfa = Math.floor(Math.random() * 2 + 1);//随机运算符
+                    tab += "<td>"
+                        + j + "、" + "<input id='q" + j + "' type='text' disabled='disabled' style='border: 0px; background: none; width: 18px; ' value='" + Math.floor(Math.random() * 10 + 1) + "' />" +
+                        "<input id='z" + j + "' type='text' disabled='disabled' style='border: 0px; background: none; width: 18px; ' value='" + ysf[ysfa] + "' />" +
+                        "<input id='h" + j + "' type='text' disabled='disabled' style='border: 0px; background: none; width: 18px; ' value='" + Math.floor(Math.random() * 10 + 1) + "' />" +
+                        "= " + "<input id='" + j + "' type='text' size='4' align='right'/>" +
+                        "<input id='j" + j + "' type='text' disabled='disabled' style='border: 0px; background: none; width: 22px; color:crimson; font-size:28px;' />" + "</td>";
+                }
+                tab += "</tr>";
+            }
+            tab += "</table>"
+            div1.innerHTML = tab;
+            document.getElementById("zf").value = null;
+        } else {
+            time.innerHTML = time.innerHTML - 1;
+        }
+    }
+    //1000毫秒调用一次
+    var timer = window.setInterval("countDown()", 1000);
+</script>
+@**考试倒计时*@
+
+<style>
+    #Time, #p {
+        font-size: 100px;
+        text-align: center;
+    }
+</style>
+
+
+<div id="timer" style="color:red;top:160px;position:absolute;left:750px;font-size:24px;"></div>
+<div id="Time">5</div> @*开始考试*@
+<div class="K_Stu">
+    <div class="dropdown">
+       
+        <div class="grade">
+        <select style="width: 200px;">
+            <option value="volvo">年级</option>
+            <option value="volvo">一年级</option>
+            <option value="saab">二年级</option>
+            <option value="opel">三年级</option>
+            <option value="audi">四年级</option>
+            <option value="opel">五年级</option>
+            <option value="audi">六年级</option>
+        </select>
+
+    </div>
+    </div>
+</div>
+<br />
+<div class="K_Stu1">
+    <div class="dropdown">
+    </div>
+</div>
+
+<div class="div-a">
+    <div class="div-b">
+        <div id="div1"></div>  @*显示题目*@
+        <input id="zf" type="text" disabled="disabled" style="border: 0px; background: none; width: 200px; color:crimson; font-size:20px;" />
+    </div>
+</div>
+
+<div class="submits1">
+    <button onclick="displayDate()" style="background:aliceblue; font-weight:bold; color:#76B6E1; font-size:30px;">提交试卷</button>
+</div>

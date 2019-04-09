@@ -1,0 +1,327 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-image:url(Images/33.jpg)
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+.K_Stu2 {
+    position: absolute;
+    right: 400px;
+    top: 130px;
+}
+
+
+
+.K_Stu3 {
+    position: absolute;
+    right: 700px;
+    top: 130px;
+}
+#One {
+    margin: 200px 200px;
+  
+}
+
+#Two {
+    right: 840px;
+    top: 340px;
+    position: absolute;
+}
+#There {
+    right: 440px;
+    top: 340px;
+    position: absolute;
+}
+/*学生练习答题、提交*/
+.answ {
+    position: absolute;
+    right: 1200px;
+    top: 850px;
+}
+
+.subm {
+    position: absolute;
+    right: 700px;
+    top: 850px;
+}
+/*学生练习框*/
+.div-a {
+    background: url(div-a-bg.png) no-repeat;
+    width: 700px;
+    height: 500px;
+    padding: 10px;
+    
+}
+.practice {
+    position: absolute;
+    right: 1200px;
+    top: 300px;
+}
+
+.exam {
+    position: absolute;
+    right: 800px;
+    top: 300px;
+}
+
+.div-b {
+    background: white;
+    width: 1200px;
+    height: 600px;
+    padding: 5px;
+    color: mediumorchid;
+    filter: alpha(Opacity=60);
+    opacity: 0.8;
+    top: 200px;
+    position: absolute;
+    margin-left:30px;
+}
+/*学生测试*/
+.K_Stu {
+    position: absolute;
+    right: 400px;
+    top: 130px;
+}
+
+.K_Stu1 {
+    position: absolute;
+    right: 700px;
+    top: 130px;
+}
+.answers {
+    position: absolute;
+    right: 1200px;
+    top: 850px;
+}
+
+.submits1 {
+    position: absolute;
+    right: 700px;
+    top: 850px;
+}
+/*剩余时间*/
+.promotion1 {
+    position: absolute;
+    top: 160px;
+    font-size:20px;
+    right:1200px;
+}
+/*教师练习*/
+.opu {
+    width: 100%;
+    height: 100%;
+}
+
+.bz {
+    width: 100%;
+    height: 100%;
+}
+
+.I {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    top: 40px;
+    left: 100px;
+}
+
+.Name {
+    line-height: 35px;
+    color: black;
+    margin: 10px auto;
+    position: absolute;
+    left: 180px;
+    top: 60px;
+    font-size: 30px;
+}
+
+.Help {
+    line-height: 35px;
+    color: black;
+    margin: 10px auto;
+    position: absolute;
+    right: 380px;
+    top: 40px;
+    font-size: 30px;
+}
+
+.Users {
+    line-height: 35px;
+    color: black;
+    margin: 5px auto;
+    position: absolute;
+    right: 80px;
+    top: 40px;
+    font-size: 30px;
+}
+
+.H {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    right: 458px;
+    top: 40px;
+}
+
+
+
+.Exercise {
+    top: 400px;
+    position: absolute;
+    left:600px;
+    background: aliceblue;
+    font-weight: bold;
+    font-size:30px;
+
+}
+
+.Exam {
+    top: 400px;
+    position: absolute;
+    left: 1000px;
+    background: aliceblue;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.btn-group {
+    top: 120px;
+    position: absolute;
+    right: 600px;
+}
+
+.btn-grade {
+    top: 120px;
+    position: absolute;
+    right: 800px;
+
+}
+
+.div-a {
+    background: url(div-a-bg.png) no-repeat;
+    width: 200px;
+    height: 500px;
+    padding: 10px
+}
+
+.div-b {
+    background: white;
+    width: 1200px;
+    height: 600px;
+    padding: 5px;
+    color: black;
+    filter: alpha(Opacity=60);
+    opacity: 0.8;
+    top: 200px;
+    position: absolute;
+    font-weight: bold;
+}
+
+.div-q {
+    background: url(div-a-bg.png) no-repeat;
+    width: 10px;
+    height: 200px;
+    padding: 10px
+}
+
+.div-k {
+    background: white;
+    width: 900px;
+    height: 300px;
+    padding: 5px;
+    color: black;
+    filter: alpha(Opacity=60);
+    opacity: 0.8;
+    top: 200px;
+    position: absolute;
+    font-weight: bold;
+}
+
+.div-d {
+    background: white;
+    width: 400px;
+    height: 430px;
+    padding: 5px;
+    color: mediumorchid;
+    filter: alpha(Opacity=60);
+    opacity: 0.6;
+    top: 300px;
+    position: absolute;
+}
+/*答题*/
+.Answer-T {
+    position: absolute;
+    right: 1200px;
+    top: 850px;
+}
+/*提交*/
+.Submit-T {
+    position: absolute;
+    right: 400px;
+    top: 850px;
+}
+.grade {
+    position: absolute;
+    right: -300px;
+    top: 5px;
+}
+/*教师练习完*/
+
+/*家长*/
+
+.Grade {
+    top: 200px;
+    position: absolute;
+    left: 500px;
+    background: aliceblue;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.Mistakes {
+    top: 200px;
+    position: absolute;
+    left: 1000px;
+    background: aliceblue;
+    font-weight: bold;
+    font-size: 30px;
+}
+.dx {
+    top: 470px;
+    position: absolute;
+    left: 700px;
+}
+.welcome {
+    top: 360px;
+    position: absolute;
+    left:50px;
+  
+}
+
+.op {
+    top:900px;
+    position: absolute;
+    left: 800px;
+    font-size:20px;
+}

@@ -1,0 +1,103 @@
+﻿
+@{
+    ViewBag.Title = "Automation";
+}
+<script src="~/Scripts/wordjs/Blob.js"></script>
+<script src="~/Scripts/wordjs/FileSaver.js"></script>
+<script src="~/Scripts/wordjs/tableExport.js"></script>
+<script type="text/javascript">
+    //
+    //JS样式
+    var ysf = new Array();//定义运算符
+    ysf[1] = "+";
+    ysf[2] = "-";
+    function addTable() {
+        var col1 = document.getElementById("l").value;
+        var div1 = document.getElementById("div1");
+        var tab = "<table id='table1'>";
+        //循环行
+        if (col1 < 50) {
+            for (var i = 1; i <= 6; i++) {
+                tab += "<tr >";
+                //循环列
+                for (var j = 1; j <= (col1 / 6); j++) {
+                    var ysfa = Math.floor(Math.random() * 2 + 1);//随机运算符
+                    var ces = Math.floor(Math.random() * 10 + 1);
+                    var FUH = ysf[ysfa];
+                    var CES2 = Math.floor(Math.random() * 10 + 1)
+                    tab += "<td>"+ j + "、" + ces+ FUH + CES2 + "=" + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + "</td>";
+                }
+                tab += "</tr>";
+            }
+        } else {
+            for (var i = 1; i <= 10; i++) {
+                tab += "<tr >";
+                //循环列
+                for (var j = 1; j <= (col1 / 10); j++) {
+                    var ysfa = Math.floor(Math.random() * 2 + 1);//随机运算符
+                    var ces = Math.floor(Math.random() * 10 + 1);
+                    var FUH = ysf[ysfa];
+                    var CES2 = Math.floor(Math.random() * 10 + 1)
+                    tab += "<td>"+ j + "、" + ces+ FUH + CES2 + "=" + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + "</td>";
+                }
+                tab += "</tr>";
+            }
+        }
+        tab += "</table>"
+        div1.innerHTML = tab;
+    }
+</script>
+
+<div class="base ">
+    <p class="Name"><span>自动生成题目</p>
+
+    <img src="~/Content/images/58.gif" class="I">
+
+
+   
+    <div class="btn-grade">
+        题数:<input type="text" id="l" /><input type="button" value="生成" onclick="addTable();" />
+        <div class="grade">
+            <select style="width: 200px;">
+                <option value="volvo">年级</option>
+                <option value="volvo">一年级</option>
+                <option value="saab">二年级</option>
+                <option value="opel">三年级</option>
+                <option value="audi">四年级</option>
+                <option value="opel">五年级</option>
+                <option value="audi">六年级</option>
+            </select>
+
+        </div>
+    </div>
+
+    <div class="div-q">
+        <div class="div-k">题目:<div id="div1"></div>  @*显示题目*@</div>
+    </div>
+
+    <div class="Answer-T">
+
+    </div>
+    <div class="Submit-T">
+        <div id="export">
+            <a data-type="doc" href="javascript:;" style="background:aliceblue; font-weight:bold; color:#76B6E1; font-size:30px;">导出word</a>
+        </div>
+    </div>
+    <script>
+
+        var $exportLink = document.getElementById('export');
+
+        $exportLink.addEventListener('click', function (e) {
+
+            e.preventDefault();
+
+            if (e.target.nodeName === "A") {
+
+                tableExport('table1', '导出试题', e.target.getAttribute('data-type'));
+
+            }
+
+        }, false);
+
+    </script>
+

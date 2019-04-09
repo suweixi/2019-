@@ -1,0 +1,198 @@
+﻿
+@{
+    ViewBag.Title = "Exam";
+}
+<script src="~/Scripts/wordjs/Blob.js"></script>
+<script src="~/Scripts/wordjs/FileSaver.js"></script>
+<script src="~/Scripts/wordjs/tableExport.js"></script>
+
+<style type="text/css">
+    /*CSS样式*/
+    table {
+        width: 1200px;
+    }
+
+    td {
+        width: 20%;
+        float: left;
+    }
+</style>
+<script type="text/javascript">
+    //答题的题目生成
+    //
+    //JS样式
+    var ysf = new Array();//定义运算符
+    ysf[1] = "+";
+    ysf[2] = "-";
+    function addTable() {
+        var col1 = document.getElementById("l").value;
+        var div1 = document.getElementById("div1");
+        fubiao();
+        var tab = "<table id='table1'>";
+        //循环行
+        for (var i = 1; i <= 1; i++) {
+            tab += "<tr >";
+            //循环列
+            for (var j = 1; j <= col1; j++) {
+                var ysfa = Math.floor(Math.random() * 2 + 1);//随机运算符
+                var t1 = "<input id='q" + j + "' type='text' disabled='disabled' style='border: 0px; background: none; width: 18px; ' value='" + Math.floor(Math.random() * 10 + 1) + "' />";//第一位数
+                var fh = "<input id='z" + j + "' type='text' disabled='disabled' style='border: 0px; background: none; width: 18px; ' value='" + ysf[ysfa] + "' />";
+                var t2 = "<input id='h" + j + "' type='text' disabled='disabled' style='border: 0px; background: none; width: 18px; ' value='" + Math.floor(Math.random() * 10 + 1) + "' />";
+                var ces = Math.floor(Math.random() * 10 + 1);
+                tab += "<td>"
+                    + j + "、" + t1
+                    + fh + t2.toString() + "= " + "<input id='" + j + "' type='text' size='4' align='right'/>" +
+                    "<input id='j" + j + "' type='text' disabled='disabled' style='border: 0px; background: none; width: 22px; color:crimson; font-size:28px;' />" + "</td>";
+            }
+            tab += "</tr>";
+        }
+        tab += "</table>"
+        div1.innerHTML = tab;
+        document.getElementById("zf").value = null;
+    }
+</script>
+<script type="text/javascript">
+    //打印的题目生成
+    //
+    //JS样式
+    var ysf = new Array();//定义运算符
+    ysf[1] = "+";
+    ysf[2] = "-";
+    function fubiao() {
+        var col1 = document.getElementById("l").value;
+        var tab = "<table id='table2'>";
+        //循环行
+        if (col1 < 50) {
+            for (var i = 1; i <= 6; i++) {
+                tab += "<tr >";
+                //循环列
+                for (var j = 1; j <= (col1 / 6); j++) {
+                    var ysfa = Math.floor(Math.random() * 2 + 1);//随机运算符
+                    var ces = Math.floor(Math.random() * 10 + 1);
+                    var FUH = ysf[ysfa];
+                    var CES2 = Math.floor(Math.random() * 10 + 1)
+                    tab += "<td>" + j + "、" + ces + FUH + CES2 + "=" + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + "</td>";
+                }
+                tab += "</tr>";
+            }
+        } else {
+            for (var i = 1; i <= 10; i++) {
+                tab += "<tr >";
+                //循环列
+                for (var j = 1; j <= (col1 / 10); j++) {
+                    var ysfa = Math.floor(Math.random() * 2 + 1);//随机运算符
+                    var ces = Math.floor(Math.random() * 10 + 1);
+                    var FUH = ysf[ysfa];
+                    var CES2 = Math.floor(Math.random() * 10 + 1)
+                    tab += "<td>" + j + "、" + ces + FUH + CES2 + "=" + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + "</td>";
+                }
+                tab += "</tr>";
+            }
+        }
+        tab += "</table>"
+        document.getElementById("div2").style.display = "none";//隐藏
+        div2.innerHTML = tab;
+    }
+</script>
+<script>
+    //提交答题卡
+    function buttonClick() {
+
+        var col1 = document.getElementById("l").value;//获取输入题数的值
+        for (var i = 1; i <= col1; i++) {
+            if (document.getElementById("z" + i).value == "+") {
+
+                if (Number(document.getElementById("q" + i).value) + Number(document.getElementById("h" + i).value) == document.getElementById(i).value && document.getElementById(i).value.length != 0) {
+                    document.getElementById("j" + i).value = "√";
+                } else {
+                    document.getElementById("j" + i).value = "X";
+                }
+            } else if (document.getElementById("z" + i).value == "-") {
+                if (Number(document.getElementById("q" + i).value) - Number(document.getElementById("h" + i).value) == document.getElementById(i).value && document.getElementById(i).value.length != 0) {
+                    document.getElementById("j" + i).value = "√";
+                } else {
+                    document.getElementById("j" + i).value = "X";
+                }
+            }
+            else
+                document.getElementById("j" + i).value = "BUG";
+
+
+
+        }
+        //得出分数
+        var col1 = document.getElementById("l").value;//获取输入题数的值
+        var abc = 0;
+        for (var i = 1; i <= col1; i++) {
+            if (document.getElementById("j" + i).value == "X") {
+                abc = abc + 1;
+            }
+        }
+
+        document.getElementById("zf").value = "本次练习成绩为：" + (col1 - abc) * 5 + "分";
+    }
+</script>
+
+<p class="Name"><span>练习模式</p>
+<img src="~/Content/images/58.gif" class="I">
+<div class="K_Stu2">
+    <div class="dropdown">
+
+        <div class="grade">
+            <select style="width: 200px;">
+                <option value="volvo">年级</option>
+                <option value="volvo">一年级</option>
+                <option value="saab">二年级</option>
+                <option value="opel">三年级</option>
+                <option value="audi">四年级</option>
+                <option value="opel">五年级</option>
+                <option value="audi">六年级</option>
+            </select>
+        </div>
+    </div>
+</div>
+        <br />
+        <div class="K_Stu3">
+            <div class="dropdown">
+                题数:<input type="text" id="l" /><input type="button" value="生成" onclick="addTable();" />
+            </div>
+        </div>
+
+        <div class="div-a">
+            <div class="div-b" style="overflow-y:scroll;">
+                填空题(每题5分)：
+                <div id="div1"></div>  @*显示题目*@
+                <div id="div2"></div>
+                <input id="zf" type="text" disabled="disabled" style="border: 0px; background: none; width: 200px; color:crimson; font-size:20px;" /><dr>
+            </div>
+
+        </div>
+        <div class="answ" style="background:aliceblue; font-weight:bold; color:#76B6E1; font-size:30px;">
+            <div id="export">
+                <a data-type="doc" href="javascript:;">导出试题</a>
+            </div>
+        </div>
+        <div class="subm">
+            <input type="submit" class="btn btn-info btn-lg " value="答题卡提交" onclick="buttonClick();" style="background:aliceblue; font-weight:bold; color:#76B6E1; font-size:30px;">
+
+        </div>
+        <script>
+
+            var $exportLink = document.getElementById('export');
+
+            $exportLink.addEventListener('click', function (e) {
+
+                e.preventDefault();
+
+                if (e.target.nodeName === "A") {
+
+                    tableExport('table2', '打印试题', e.target.getAttribute('data-type'));
+
+                }
+
+            }, false);
+
+        </script>
+
+
+
